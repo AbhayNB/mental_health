@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mental Health Examination</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/styles.css') }}"
+    />
+    
+  </head>
+
+  <body>
+
+    <div class="container">
+      <h1 class="chat-title">Mental Health Examination</h1>
+
+      <!-- Condition , Severity and Gender Selection  -->
+      <form id="chat-form">
+        <div class="form-group" >
+          <div class="single-row">
+            
+          <div class="single-option">
+            <label for="condition" class="mx-2">Health Condition:</label>
+            <select id="condition" name="condition" class="form-control mr-3 w-25">
+              <option value="Memory Loss">Memory Loss</option>
+              <option value="Alzheimer">Alzheimer</option>
+            </select>
+
+          </div>
+      
+          <div class="single-option">
+            <label for="severity" class="mx-2">Severity:</label>
+            <select id="severity" name="severity" class="form-control mr-3 w-25">
+              <option value="None">None</option>
+              <option value="Mild">Mild</option>
+              <option value="Moderate">Moderate</option>
+              <option value="Severe">Severe</option>
+            </select>
+            </div>
+      
+            <div class="single-option">
+              <label for="gender" class="mx-2">Gender:</label>
+              <select id="gender" name="gender" class="form-control mr-3 w-25">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+              </select>
+            </div>
+      
+          </div>
+          <button type="submit" class="btn btn-primary" style="width: 11.5%;">
+            Start
+          </button>
+        </div>
+      </form>
+      
+      <!-- Clear Chat button -->
+      <div class="row mt-3 mb-3 btn-container" >
+        <div class="col-md-12">
+          <button id="clear-chat-btn" class="btn btn-danger clear-chat-btn " >
+            Clear All 
+          </button>
+        </div>
+      </div>
+
+
+      
+      <!-- Chat box-->
+      <div class="chat-container">
+        <div id="chat-log" ></div>
+        <!-- ChatBot's further query box -->
+        <form id="further-chat-form" class="form-group d-none chat-form">
+          
+            <button id="further-chat-mic-button" type="button" class="btn btn-secondary voice-input-button mt-2" onclick="startSpeechRecognition()"></button>
+            <!-- <span id="speech-message"></span> -->
+          
+          <textarea id="doctor_input" class="form-control chat-input" placeholder="Enter your message..." ></textarea>
+          <button id="further-chat-button" type="submit" class="btn btn-primary send-button ">Send</button>
+        </form>
+      </div>
+      <span id="speech-message"></span>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  </body>
+  
+</html>
